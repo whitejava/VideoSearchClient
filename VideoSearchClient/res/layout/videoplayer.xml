@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent" android:layout_width="fill_parent" android:background="@drawable/background">
+
+	<SurfaceView
+	    android:id="@+id/surfaceView1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="match_parent"
+	    android:layout_above="@+id/playbar" android:layout_marginLeft="40dp" android:layout_marginRight="40dp" android:layout_marginTop="5dp"/>
+	
+	<LinearLayout android:layout_height="wrap_content"
+	    android:id="@+id/playbar"
+		android:layout_width="fill_parent" android:layout_gravity="bottom"
+		android:orientation="vertical" android:layout_alignParentBottom="true">
+		<LinearLayout android:orientation="horizontal"
+			android:layout_gravity="center_horizontal" android:layout_marginTop="4.0dip"
+			android:layout_height="wrap_content" android:layout_width="wrap_content">
+			<Button android:layout_width="50dp"
+				android:layout_height="50dp" android:id="@+id/btnPlayUrl"
+				android:background="@drawable/play" android:layout_marginRight="15dp"></Button>
+			<Button android:layout_height="50dp" android:id="@+id/btnPause"
+				android:layout_width="50dp" android:background="@drawable/pause" android:layout_marginRight="15dp"></Button>
+			<Button android:layout_height="50dp"
+				android:layout_width="50dp" android:id="@+id/btnStop" android:background="@drawable/stop"></Button>
+		</LinearLayout>
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_marginBottom="5dp">
+			<SeekBar android:paddingRight="10dip" android:layout_gravity="center_vertical"
+				android:paddingLeft="10dip" android:layout_weight="1.0"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:id="@+id/skbProgress" android:max="100"></SeekBar>
+		</LinearLayout>
+	</LinearLayout>
+</RelativeLayout>

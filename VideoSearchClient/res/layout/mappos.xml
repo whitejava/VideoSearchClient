@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@drawable/background">
+
+    <include
+        android:id="@+id/in_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/header" />
+
+    <LinearLayout
+        android:id="@+id/words"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginBottom="10dp" android:layout_marginTop="10dp" android:layout_marginLeft="10dp" android:layout_marginRight="10dp" android:layout_below="@id/in_topbar">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图上标记点为商品所在地。点击返回按钮返回到搜索结果页面。"
+            android:textAppearance="?android:attr/textAppearanceMedium" style="@style/styTextView"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/choose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_below="@id/words" android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地图类型："
+            android:textAppearance="?android:attr/textAppearanceLarge" android:layout_marginLeft="20dp" android:layout_marginRight="10dp" style="@style/styTextView"/>
+
+        <ToggleButton
+            android:id="@+id/tgbtnTrafic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ToggleButton" android:textOn="卫星图" android:textOff="交通图" android:textSize="20dp"/>
+
+    </LinearLayout>
+
+
+      <com.google.android.maps.MapView
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/mapview"
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:apiKey="0JMISqatt41TApk4s_ZAU2wC4CJNdGASxvbzDYg" android:layout_below="@id/choose"
+
+    android:focusableInTouchMode="true" android:layout_marginBottom="60dp" android:clickable="true"/>
+
+      <Button
+          android:id="@+id/btnBack"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="返回到搜索结果页面" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:layout_marginBottom="5dp"/>
+
+</RelativeLayout>

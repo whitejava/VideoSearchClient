@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/AbsoluteLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF0FF" >
+
+    <ImageView
+        android:id="@+id/ivAdWords"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/tvCopyRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="版权所有 2012"
+        android:textAppearance="?android:attr/textAppearanceSmall" android:textColor="#C3C3C3" android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/tvCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="杭州酷搜信息技术有限公司"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#C3C3C3" android:layout_above="@id/tvCopyRight" android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/ivLogoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/logotitile"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#0000FF"
+        android:textSize="50dp" />
+
+</RelativeLayout>
