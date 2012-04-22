@@ -63,7 +63,8 @@ public class LeadActivity extends Activity implements OnClickListener {
 	}
 	
 	private void showAd(){
-		LinearLayout ll = (LinearLayout)findViewById(R.id.lllogo);
+		View v = findViewById(R.id.llAd);
+		LinearLayout ll = (LinearLayout)v;
 		AdBanner.create(this, ll);
 	}
 
