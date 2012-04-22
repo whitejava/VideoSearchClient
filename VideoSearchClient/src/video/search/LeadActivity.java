@@ -5,6 +5,7 @@ import java.io.File;
 
 import org.ksoap2.serialization.SoapObject;
 
+import video.ad.AdBanner;
 import video.main.CommonOperation;
 import video.values.Const;
 import video.values.HanderMessage;
@@ -38,6 +39,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewDebug.FlagToString;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class LeadActivity extends Activity implements OnClickListener {
@@ -59,9 +61,14 @@ public class LeadActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.logo);
 		(new loadMain()).start();
 	}
+	
+	private void showAd(){
+		LinearLayout ll = (LinearLayout)findViewById(R.id.lllogo);
+		AdBanner.create(this, ll);
+	}
 
 	private void init() {
-
+		showAd();
 		btnPhoto = (Button) findViewById(R.id.btnsphoto);
 		btnVideo = (Button) findViewById(R.id.btnsvideo);
 		btnCPhoto = (Button) findViewById(R.id.btnscphoto);
