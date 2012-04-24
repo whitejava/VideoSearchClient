@@ -11,23 +11,20 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Log;
 
-public class WebServiceUtil {
+public class Request {
 	// 命名空间
-	//final String SERVICE_NS = "http://yhtt2020.vicp.cc/VideoSearchService";
 	final static String SERVICE_NS = "http://yhtt2020.vicp.cc/VideoSearchService";
 	// 服务地址
-	//final static String SERVICE_URL = "http://www.coolsou.com/SearchEngine.asmx";
 	final static String SERVICE_URL = "http://www.coolsou.com/SearchEngine.asmx";
 	// ACTION
-	final String SERVICE_ACTION =SERVICE_NS;
-	// static final String SERVICE_ACTION=SERVICE_NS;
+	final String SERVICE_ACTION = SERVICE_NS;
 	private SoapObject soapObject = null;
 
-	public WebServiceUtil(String operation) {
+	public Request(String operation) {
 		soapObject = new SoapObject(SERVICE_NS, operation);
 	}
 
-	public void AddPropertyParameter(String name, Object value) {
+	public void put(String name, Object value) {
 		soapObject.addProperty(name, value);
 	}
 
