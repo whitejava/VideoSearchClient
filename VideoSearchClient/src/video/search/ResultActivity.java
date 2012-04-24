@@ -6,6 +6,9 @@ import video.main.*;
 import video.module.GoodAdapter;
 import video.module.Searcher;
 import video.protocol.Good;
+import video.search.page.OnPageTurnListener;
+import video.search.page.PageEvent;
+import video.search.page.ShowPageNumber;
 import video.values.Const;
 import video.values.HanderMessage;
 import video.values.SearchType;
@@ -32,16 +35,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ResultActivity extends Activity {
-	// 显示结果记录数的textview
 	private TextView resultCount;
-	private static final int CAPTURE_VIDEO_REQUEST = 1338;
 	private final int REQUEST_MapPos = 1212;
 
 	private static final String VIDEO_URL = "http://192.168.40.1/Videos/";
 	private static final int NOPROGRESSS_DIALOG = 0;
 	private static final int PROGRESS_DIALOG = 1;
 	private static final int ITEM_COUNT_PER_PAGE = 10;
-	private static final int PAGE_NUMBER_VISIBLE_DURATION = 2000;
 
 	private Thread searchThread = null;
 	public static int position = 0;
@@ -60,7 +60,7 @@ public class ResultActivity extends Activity {
 	private void showResult() {
 		pageCount = calculatePageCount(content.length);
 		ListView resultList = (ListView) findViewById(R.id.lvResult);
-		resultList.setOnScrollListener(new PageEvent(new ShowPageNumber(), ITEM_COUNT_PER_PAGE));
+		resultList.setOnScrollListener(new PageEvent(new ShowPageNumber((TextView)findViewById(R.id.tvPageNumber), pageCount), ITEM_COUNT_PER_PAGE));
 		GoodAdapter goodAdapter = new GoodAdapter(ResultActivity.this, content);
 		resultList.setAdapter(goodAdapter);
 	}
@@ -70,22 +70,6 @@ public class ResultActivity extends Activity {
 			return itemCount / ITEM_COUNT_PER_PAGE;
 		} else {
 			return itemCount / ITEM_COUNT_PER_PAGE + 1;
-		}
-	}
-	
-	private class ShowPageNumber implements OnPageTurnListener {
-		private AutoHide autoHide;
-		private TextView text;
-		
-		public ShowPageNumber(){
-			text = (TextView)findViewById(R.id.tvPageNumber);
-			autoHide = new AutoHide(text, PAGE_NUMBER_VISIBLE_DURATION);
-		}
-		
-		@Override
-		public void onPageTurn(int page) {
-			text.setText(String.format("%d/%d页", page, pageCount));
-			autoHide.activate();
 		}
 	}
 	
