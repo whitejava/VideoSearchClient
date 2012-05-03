@@ -35,7 +35,7 @@ public class RegisterActivity extends Activity {
 		}
 		
 		private boolean register(String userName, String password){
-			
+			return true;
 		}
 		
 		private String getText(int id){

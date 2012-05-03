@@ -11,7 +11,7 @@ public class AdBanner {
 	private static final String PUBLISHER_ID = "a14f91146c6419a";
 	
 	public static void create(Activity activity, LinearLayout view){
-	    AdView adView = new AdView(activity, AdSize.SMART_BANNER, PUBLISHER_ID);
+	    AdView adView = new AdView(activity, AdSize.BANNER, PUBLISHER_ID);
 	    view.addView(adView);
 	    adView.loadAd(new AdRequest());
 	}
