@@ -1,5 +1,6 @@
 package video.search;
 
+import video.protocol.Engine;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,7 +48,13 @@ public class LoginActivity extends Activity {
 		}
 		
 		private boolean login(String userName, String password){
-			
+			String userIdString = new Engine().Login(userName, password);
+			int userId = Integer.parseInt(userIdString);
+			if(userId == 0){
+				return false;
+			} else {
+				return true;
+			}
 		}
 		
 		private void loginSuccess(){
