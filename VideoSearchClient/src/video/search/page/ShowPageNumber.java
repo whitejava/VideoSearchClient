@@ -17,7 +17,7 @@ public class ShowPageNumber implements OnPageTurnListener {
 	
 	@Override
 	public void onPageTurn(int page) {
-		textView.setText(String.format("%d/%dҳ", page, pageCount));
+		textView.setText(String.format("%d/%dҳ", page+1, pageCount));
 		autoHide.activate();
 	}
 }
