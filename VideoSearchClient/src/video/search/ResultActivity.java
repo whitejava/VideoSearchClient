@@ -2,6 +2,7 @@ package video.search;
 
 import java.io.File;
 
+import video.ad.AdBanner;
 import video.main.*;
 import video.module.GoodAdapter;
 import video.module.Searcher;
@@ -30,6 +31,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,6 +84,7 @@ public class ResultActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.result);
 		resultCount = (TextView) findViewById(R.id.tvShower);
+		AdBanner.create(this, (LinearLayout)findViewById(R.id.llAd));
 		Intent intent = getIntent();
 		int type = intent.getIntExtra("type", 0);
 
