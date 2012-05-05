@@ -13,12 +13,12 @@ public class RegisterActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.login);
+		setContentView(R.layout.register);
 		listenRegisterButton();
 	}
 	
 	private void listenRegisterButton(){
-		Button b = (Button)findViewById(R.id.registerButton);
+		Button b = (Button)findViewById(R.id.register);
 		b.setOnClickListener(new Register());
 	}
 	
@@ -39,7 +39,11 @@ public class RegisterActivity extends Activity {
 		
 		private String getSex(){
 			RadioGroup a = (RadioGroup)findViewById(R.id.sex);
-			throw new RuntimeException(a.getCheckedRadioButtonId()+"");
+			if(a.getCheckedRadioButtonId() == R.id.male){
+				return "true";
+			} else {
+				return "false";
+			}
 		}
 		
 		private boolean register(String userName, String password, String sex,String email){
