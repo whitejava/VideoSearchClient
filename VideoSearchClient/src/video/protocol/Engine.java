@@ -47,6 +47,15 @@ public class Engine {
 		return getResult(detail);
 	}
 	
+	public String Register(String userName, String password, String sex, String email){
+		Request r = new Request("Register");
+		r.put("userName", userName);
+		r.put("password", password);
+		r.put("sex", sex);
+		r.put("email", email);
+		throw new RuntimeException("not impl");
+	}
+	
 	private String getResult(SoapObject soapObject){
 		return soapObject.getProperty(0).toString();
 	}
