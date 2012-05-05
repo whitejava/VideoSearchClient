@@ -1,5 +1,6 @@
 package video.search;
 
+import video.protocol.Engine;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,7 +48,8 @@ public class RegisterActivity extends Activity {
 		}
 		
 		private boolean register(String userName, String password, String sex,String email){
-			throw new RuntimeException();
+			String r = new Engine().Register(userName, password, sex, email);
+			return Integer.parseInt(r) != 0;
 		}
 		
 		private String getText(int id){

@@ -2,9 +2,11 @@ package video.protocol;
 
 import org.ksoap2.serialization.SoapObject;
 
+import android.R.string;
 import android.util.Log;
 
 public class Engine {
+
 	public Good[] SearchByKeyFeatures(String featureCodes,String userPos,String alpha,String sameDegree) {
 		featureCodes = featureCodes.trim().replace(" ", ",");
 		Request r = new Request("SearchByKeyFeatures");
@@ -39,12 +41,17 @@ public class Engine {
 		}
 	}
 	
+	/**登陆
+	 * @param userName 用户名
+	 * @param password 密码
+	 * @return 返回结果，如果为ERROR
+	 */
 	public String Login(String userName, String password){
 		Request r = new Request("Login");
 		r.put("userName", userName);
 		r.put("password", password);
 		SoapObject detail = r.GetResult();
-		return getResult(detail);
+		return getResult(detail,r);
 	}
 	
 	public String Register(String userName, String password, String sex, String email){
@@ -53,11 +60,14 @@ public class Engine {
 		r.put("password", password);
 		r.put("sex", sex);
 		r.put("email", email);
-		throw new RuntimeException("not impl");
+		SoapObject detail = r.GetResult();
+		return getResult(detail,r);
 	}
 	
-	private String getResult(SoapObject soapObject){
-		return soapObject.getProperty(0).toString();
+	private String getResult(SoapObject soapObject,Request r){
+	//	String str=soapObject.getProperty(0).toString();
+		String resultString=soapObject.getProperty(r.getMethodName()+"Result").toString();
+		return resultString;
 	}
 	
 	private Good[] toGoods(SoapObject detail){
