@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +27,9 @@ public class RegisterActivity extends Activity {
 		public void onClick(View v) {
 			String userName = getText(R.id.userName);
 			String password = getText(R.id.password);
-			if(register(userName, password)){
+			String sex = getSex();
+			String email = getText(R.id.email);
+			if(register(userName, password,sex,email)){
 				toast("×¢²á³É¹¦");
 				RegisterActivity.this.finish();
 			} else {
@@ -34,8 +37,13 @@ public class RegisterActivity extends Activity {
 			}
 		}
 		
-		private boolean register(String userName, String password){
-			return true;
+		private String getSex(){
+			RadioGroup a = (RadioGroup)findViewById(R.id.sex);
+			throw new RuntimeException(a.getCheckedRadioButtonId()+"");
+		}
+		
+		private boolean register(String userName, String password, String sex,String email){
+			throw new RuntimeException();
 		}
 		
 		private String getText(int id){

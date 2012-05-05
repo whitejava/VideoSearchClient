@@ -2,20 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/itemback">
+    android:background="@drawable/itemback"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginTop="30dip"
         android:text="用户名"
-        android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="#333" android:layout_marginLeft="20dip" android:layout_marginTop="30dip"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#333" />
 
     <EditText
         android:id="@+id/userName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:layout_marginLeft="10dip" android:layout_marginRight="10dip">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip" >
 
         <requestFocus />
     </EditText>
@@ -42,17 +47,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" android:layout_marginLeft="10dp">
 
-        <RadioButton
-            android:id="@+id/radioButton1"
+        <RadioGroup
+            android:id="@+id/sex"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="男" android:textColor="#000"/>
+            android:layout_height="wrap_content" android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="女" android:layout_marginLeft="30dp" android:textColor="#000"/>
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="男" android:textColor="#000"/>
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="女" android:layout_marginLeft="30dp" android:textColor="#000"/>
+        </RadioGroup>
 
     </LinearLayout>
         <TextView

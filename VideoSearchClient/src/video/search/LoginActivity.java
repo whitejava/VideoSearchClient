@@ -2,6 +2,7 @@ package video.search;
 
 import video.protocol.Engine;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,11 +16,25 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
 		listenLoginButton();
+		listenRegisterButton();
 	}
 	
 	private void listenLoginButton(){
-		Button btnlogin = (Button) findViewById(R.id.loginButton);
+		Button btnlogin = (Button) findViewById(R.id.login);
 		btnlogin.setOnClickListener(new LoginListener());
+	}
+	
+	private void listenRegisterButton(){
+		Button b = (Button) findViewById(R.id.register);
+		b.setOnClickListener(new RegisterListener());
+	}
+	
+	private class RegisterListener implements OnClickListener {
+		@Override
+		public void onClick(View arg0) {
+			Intent i = new Intent(LoginActivity.this,RegisterActivity.class);
+			startActivity(i);
+		}
 	}
 	
 	private class LoginListener implements OnClickListener {
